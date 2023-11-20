@@ -66,3 +66,45 @@ class ATM:
 
             self.menu()
 
+
+
+
+# output in the console shown as below:
+
+# from main import ATM
+# sbi = ATM()
+#         Hello, How would you like to proceed?
+#         1. Enter 1 to create the pin
+#         2. Enter 2 to deposit
+#         3. Enter 3 to withdraw
+#         4. Enter 4 to check Balance
+#         5. Enter 5 to Exit.
+#         >? 1
+# Enter your pin>? 1234
+# Pin set successfully
+# sbi.deposit()
+# Enter your pin>? 1234
+# Enter the amount>? 8000
+# Deposit Successfully
+# sbi.withdraw()
+# Enter the pin>? 1234
+# Enter the amount>? 5000
+# Operation Successfull
+# sbi.check_balance()
+# Enter the pin>? 1234
+# 3000
+# 5
+# 5
+# 5
+# 5
+# sbi = ATM()
+#         Hello, How would you like to proceed?
+#         1. Enter 1 to create the pin
+#         2. Enter 2 to deposit
+#         3. Enter 3 to withdraw
+#         4. Enter 4 to check Balance
+#         5. Enter 5 to Exit.
+#         >? 1
+# Enter your pin>? 1234
+# Pin set successfully
+
