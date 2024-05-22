@@ -1,110 +1,43 @@
-class ATM:
-    def __init__(self):     # Constructor
-        self.pin = ""
-        self.balance = 0
-        self.menu()
+# Initial balance
+balance = 1000.0
 
-    def menu(self):
-        user_input = input("""
-        Hello, How would you like to proceed?
-        1. Enter 1 to create the pin
-        2. Enter 2 to deposit
-        3. Enter 3 to withdraw
-        4. Enter 4 to check Balance
-        5. Enter 5 to Exit.
-        """)
-
-        if user_input == "1":
-            self.create_pin()
-        elif user_input == "2":
-            self.deposit()
-        elif user_input == "3":
-            self.withdraw()
-        elif user_input == "4":
-            self.check_balance()
+# Main loop
+while True:
+    print("\nWelcome to Simple ATM")
+    print("1. Check Balance")
+    print("2. Deposit")
+    print("3. Withdraw")
+    print("4. Exit")
+    
+    # Get user input
+    choice = input("Enter your choice: ")
+    
+    if choice == '1':
+        # Check balance
+        print(f"Your current balance is: ${balance:.2f}")
+        
+    elif choice == '2':
+        # Deposit money
+        deposit_amount = float(input("Enter amount to deposit: $"))
+        if deposit_amount > 0:
+            balance += deposit_amount
+            print(f"${deposit_amount:.2f} has been deposited to your account.")
         else:
-            print("Exit")
-
-    def create_pin(self):
-        self.pin = input("Enter your pin")
-        print("Pin set successfully")
-
-        self.menu()
-
-
-    def deposit(self):
-        temp = input("Enter your pin")
-        if temp == self.pin:
-            amount = int(input("Enter the amount"))
-            self.balance = self.balance + amount
-            print("Deposit Successfully")
+            print("Invalid deposit amount.")
+        
+    elif choice == '3':
+        # Withdraw money
+        withdraw_amount = float(input("Enter amount to withdraw: $"))
+        if 0 < withdraw_amount <= balance:
+            balance -= withdraw_amount
+            print(f"${withdraw_amount:.2f} has been withdrawn from your account.")
         else:
-            print("Invalid Pin")
-
-            self.menu()
-
-    def withdraw(self):
-        temp = input("Enter the pin")
-        if temp == self.pin:
-            amount = int(input("Enter the amount"))
-            if amount < self.balance:
-                self.balance = self.balance - amount
-                print("Operation Successfull")
-            else:
-                print("insufficient funds")
-        else:
-            print("Invalid pin")
-
-            self.menu()
-
-    def check_balance(self):
-        temp = input("Enter the pin")
-        if temp == self.pin:
-            print(self.balance)
-        else:
-            print("Invalid Pin")
-
-            self.menu()
-
-
-
-
-# output in the console shown as below:
-
-# from main import ATM
-# sbi = ATM()
-#         Hello, How would you like to proceed?
-#         1. Enter 1 to create the pin
-#         2. Enter 2 to deposit
-#         3. Enter 3 to withdraw
-#         4. Enter 4 to check Balance
-#         5. Enter 5 to Exit.
-#         >? 1
-# Enter your pin>? 1234
-# Pin set successfully
-# sbi.deposit()
-# Enter your pin>? 1234
-# Enter the amount>? 8000
-# Deposit Successfully
-# sbi.withdraw()
-# Enter the pin>? 1234
-# Enter the amount>? 5000
-# Operation Successfull
-# sbi.check_balance()
-# Enter the pin>? 1234
-# 3000
-# 5
-# 5
-# 5
-# 5
-# sbi = ATM()
-#         Hello, How would you like to proceed?
-#         1. Enter 1 to create the pin
-#         2. Enter 2 to deposit
-#         3. Enter 3 to withdraw
-#         4. Enter 4 to check Balance
-#         5. Enter 5 to Exit.
-#         >? 1
-# Enter your pin>? 1234
-# Pin set successfully
-
+            print("Invalid withdraw amount or insufficient balance.")
+        
+    elif choice == '4':
+        # Exit
+        print("Thank you for using Simple ATM. Goodbye!")
+        break
+        
+    else:
+        print("Invalid choice. Please try again.")
